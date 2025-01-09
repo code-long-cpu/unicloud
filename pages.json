@@ -41,6 +41,20 @@
 	{
 		"navigationBarTitleText" : "数据库查询"
 	}
+},
+{
+	"path" : "pages/demo1/detail",
+	"style" : 
+	{
+		"navigationBarTitleText" : "详情页"
+	}
+},
+{
+	"path" : "pages/demo1/update",
+	"style" : 
+	{
+		"navigationBarTitleText" : "修改数据"
+	}
 }
 ],
 	"globalStyle": {
