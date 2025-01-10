@@ -55,6 +55,13 @@
 	{
 		"navigationBarTitleText" : "修改数据"
 	}
+},
+{
+	"path" : "pages/demo2/demo2",
+	"style" : 
+	{
+		"navigationBarTitleText" : "壁纸项目"
+	}
 }
 ],
 	"globalStyle": {

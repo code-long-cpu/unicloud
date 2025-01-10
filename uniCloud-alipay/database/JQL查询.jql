@@ -9,7 +9,6 @@
 // 详细JQL语法，请参考：https://uniapp.dcloud.net.cn/uniCloud/jql.html
 
 // 下面示例查询uni-id-users表的所有数据
-db.collection('default-user').add({
-	name:"王五",
-	age:20
+db.collection('demo_classify').add({
+	name:"自然风光",
 });
