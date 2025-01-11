@@ -62,6 +62,13 @@
 	{
 		"navigationBarTitleText" : "壁纸项目"
 	}
+},
+{
+	"path" : "pages/wallpaper/classify",
+	"style" : 
+	{
+		"navigationBarTitleText" : "分类管理"
+	}
 }
 ],
 	"globalStyle": {

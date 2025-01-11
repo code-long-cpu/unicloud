@@ -16,13 +16,25 @@
 			"title":"壁纸链接地址",
 			"bsonType": "string"
 		},
-		"description":{
+		"description":{  
 			"title":"壁纸描述",
 			"bsonType": "string"
 		},
-		"classname":{
-			"title":"所属分类",
-			"bsonType": "string"
+		// "classname":{
+		// 	"title":"所属分类",
+		// 	"bsonType": "string"
+		// },
+		"classid":{
+			"title":"分类ID",
+			"bsonType": "string",
+			"foreignKey": "demo_classify._id"
+		},
+		"createTime":{
+			"title":"时间",
+			"bsonType": "timestamp",
+			"forceDefaultValue":{
+				"$env": "now"
+			}
 		}
 		
 	}

@@ -6,7 +6,7 @@
 			</view>
 			<view class="right">
 				<view class="desc">{{item.description}}</view>
-				<view class="name">{{item.classname}}</view>
+				<view class="name">{{item.classid[0].name}}</view>
 			</view>
 		</view>
 	</view>
@@ -18,7 +18,11 @@
 	const datalist = ref()
 	
 	const getData = async () =>{
-		let res = await db.collection("demo_wallpaper").get();
+		
+		const wallTamp = db.collection("demo_wallpaper").getTemp();
+		const classTamp = db.collection("demo_classify").getTemp();
+		
+		let res = await db.collection(wallTamp,classTamp).get();
 		console.log(res)
 		datalist.value = res.result.data
 	}
@@ -31,9 +35,12 @@
 		.paper{
 			display:flex;
 			gap:20rpx;
+			margin:10rpx;
+			background-color: #EFEFEF;
 			.left{
 				width:200rpx;
 				image{
+					display: block;
 					width:100%;
 				}
 			}
