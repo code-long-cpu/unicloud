@@ -16,9 +16,10 @@
 			"title":"分类名称",
 			"bsonType": "string"
 		},
-		"state":{
+		"status":{
 			"title":"状态",
-			"bsonType": false
+			"bsonType": "bool",
+			"defaultValue":false
 		},
 		"createTime":{
 			"title":"时间",
