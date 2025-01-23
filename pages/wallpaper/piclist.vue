@@ -6,11 +6,18 @@
 		<view class="list">
 			<view class="item" v-for="item in listData" :key="item._id">
 				<view class="left">
-					<image :src="item.url" mode="aspectFill"></image>
+					<image :src="item.url" mode="aspectFill" @click="preview(item.url)"></image>
 				</view>
 				<view class="right">
 					<view class="desc">{{item.description}}</view>
-					<view class="classname">{{item.classid}}</view>
+					<view class="classname">
+						<view>	
+							{{item.classname[0]}} 
+						</view>
+						<view>
+							{{dayjs(item.createTime).format("YYYY-MM-DD HH:mm")}}
+						</view>
+					</view>
 				</view>
 			</view>
 		</view>
@@ -27,6 +34,7 @@
 			<uni-data-select
 			      collection="demo_classify"
 			      field="_id as value, name as text"
+				  where="status == true"
 			      label="应用选择"
 			      v-model="formData.classid"
 			      :clear="true"
@@ -41,6 +49,7 @@
 
 <script setup>
 import { computed, ref } from 'vue';
+import dayjs from 'dayjs';
 const db = uniCloud.database(); 
 const listData = ref([]);
 const popup = ref(null);
@@ -59,15 +68,26 @@ const disabled = computed(()=>{
 
 const getData = async()=>{
 	console.log("获取数据");
-	let {result:{data,errCode}} = await db.collection("demo_wallpaper")
-	.field("description,classid,picture.url as url")
+	let wallTemp = db.collection("demo_wallpaper")
+	.field("description,classid,picture,createTime")
+	.orderBy("createTime desc")
 	// .orderBy("data")
-	.get(); 
+	.getTemp(); 
+	let classTemp = db.collection("demo_classify").getTemp();
+	let {result:{errCode,data}} = await db.collection(wallTemp,classTemp)
+	.field("description,classid.name as classname,picture.url as url,createTime")
+	.get();
 	console.log(data);
 	if(errCode==0){
 		listData.value=data
 	}
 }
+const preview = (url)=>{
+	uni.previewImage({
+		urls:[url]
+	})
+}
+
 const handleAdd = ()=>{
 	popup.value.open();
 }
@@ -135,6 +155,9 @@ getData();
 					font-size: 28rpx;
 					color:#999;
 					padding-top:20rpx;
+					display: flex;
+					align-items: center;
+					justify-content:space-between;
 				}
 			}
 		}
