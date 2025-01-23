@@ -5,7 +5,8 @@
 		</view>
 		<view class="list">
 			<view class="item" v-for="item in classList">				
-				<view class="name">{{item.name}}</view>
+				<view class="name">{{item.name}}</view> 
+				<!-- <view class="name">{{item._id}}</view> -->
 				<view class="status">
 					<switch :checked="item.status" style="transform:scale(0.6)" @change="(e)=>switchChange(e,item._id)"/>
 				</view>

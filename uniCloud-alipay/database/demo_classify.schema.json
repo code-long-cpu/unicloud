@@ -8,7 +8,7 @@
 		"update": true,
 		"delete": true
 	},
-	"properties": {
+	"properties": { 
 		"_id": {
 			"description": "ID，系统自动生成"
 		},

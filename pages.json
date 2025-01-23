@@ -69,6 +69,13 @@
 	{
 		"navigationBarTitleText" : "分类管理"
 	}
+},
+{
+	"path" : "pages/wallpaper/piclist",
+	"style" : 
+	{
+		"navigationBarTitleText" : "壁纸页面"
+	}
 }
 ],
 	"globalStyle": {
