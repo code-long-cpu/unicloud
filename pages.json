@@ -76,6 +76,13 @@
 	{
 		"navigationBarTitleText" : "壁纸页面"
 	}
+},
+{
+	"path" : "pages/demo4/demo4",
+	"style" : 
+	{
+		"navigationBarTitleText" : "uniCloud"
+	}
 }
 ],
 	"globalStyle": {
